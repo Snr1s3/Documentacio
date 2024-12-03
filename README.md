@@ -1,0 +1,2 @@
+# Documentacio
+Obsidian
