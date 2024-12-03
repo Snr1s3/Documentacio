@@ -15,7 +15,7 @@ nano docker-compose.yml
 #### Afegir Contingut
 Canviar contrasenya Base de dades: root_password
 Canviar  usuari i contrasenya NextCloud: nextcloud_user i nexcloud_password
-````bash
+````yaml
 version: '3.8'
 
 services:
@@ -58,11 +58,11 @@ sudo docker-compose up -d
 ````
 
 ## Configurar NextCloud en el navegador
-Obre un navegador i ves a http://<IP_DEL_SERVIDOR>:8080.
-Completa la configuració:
-	Usuari administrador de Nextcloud.
-	Base de dades:
-		Servidor de base de dades: db.
-		Nom de la base de dades: nextcloud.
-		Usuari: nextcloud_*user.
+Obre un navegador i ves a http://<IP_DEL_SERVIDOR>:8080.                 
+Completa la configuració:                             
+	Usuari administrador de Nextcloud.                   
+	Base de dades:                  
+		Servidor de base de dades: db.                  
+		Nom de la base de dades: nextcloud.                 
+		Usuari: nextcloud_user.            
 		Contrasenya: user_password.

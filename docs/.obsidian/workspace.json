@@ -35,8 +35,7 @@
               "title": "Docker_Ubuntu_24-04"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -177,10 +176,10 @@
       "command-palette:Obre la paleta d'ordres": false
     }
   },
-  "active": "6f0152dac07a0ac5",
+  "active": "42d9e0aeb6d3109a",
   "lastOpenFiles": [
-    "Nextcloud.md",
     "Docker_Ubuntu_24-04.md",
+    "Nextcloud.md",
     "Untitled",
     "Welcome.md",
     "Untitled.canvas",
