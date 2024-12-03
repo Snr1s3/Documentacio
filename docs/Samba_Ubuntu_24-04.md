@@ -39,7 +39,8 @@ sudo systemctl restart smbd
 
 ## Configurar Firewall
 ```bash
-sudo ufw status
-sudo ufw allow 'Samba'
-sudo ufw reload
+sudo iptables -L
+sudo iptables -A INPUT -p tcp --dport 139 -j ACCEP
+sudo iptables -A INPUT -p tcp --dport 445 -j ACCEP
+sudo iptables-save > /etc/iptables/rules.v4
 ```
