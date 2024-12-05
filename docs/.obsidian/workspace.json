@@ -104,7 +104,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Docker Ubuntu 24.04.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +113,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Docker Ubuntu 24.04"
+              "title": "Retroenllaços"
             }
           },
           {
@@ -160,8 +159,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -175,6 +173,7 @@
   },
   "active": "6964dba5bffc26a8",
   "lastOpenFiles": [
+    "Sense títol",
     "Docker_Ubuntu_24-04.md",
     "Nextcloud.md",
     "Untitled",
