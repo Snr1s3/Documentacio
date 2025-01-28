@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Sense títol.md",
+                "file": "M07.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Sense títol"
+              "title": "M07"
             }
           }
         ],
@@ -194,7 +194,7 @@
   "active": "80b085a51af2c7b3",
   "lastOpenFiles": [
     "Untitled.md",
-    "Sense títol.md",
+    "M07.md",
     "Docker_Ubuntu_24-04.md",
     "Deshabilitar_Snap_Ubuntu_24-04.md",
     "Iptables_Ubuntu _24-04.md",
