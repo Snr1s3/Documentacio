@@ -1,46 +1,67 @@
-Instal·lació de Samba
+# Instal·lació i configuració de Samba a Ubuntu 24.04
 
-## Actualitzar el sistema
+## 1. Actualitzar el sistema
 ```bash
-sudo apt update sudo apt upgrade
+sudo apt update
+sudo apt upgrade
 ```
-## Instal·lar Samba i verificar la instal·lació
+
+## 2. Instal·lar Samba i verificar la instal·lació
 ```bash
 sudo apt install samba
 samba --version
 ```
-## Crear el directori compartit
+
+## 3. Crear el directori compartit
 ```bash
-sudo mkdir /mnt/sdc1/sambasahre
-sudo chmod -R 777 /mnt/sdc1/sambasahre
+sudo mkdir -p /mnt/sdc1/sambashare
+sudo chmod -R 777 /mnt/sdc1/sambashare
 ```
-## Configurar Samba
+
+## 4. Configurar Samba
+
+Edita el fitxer de configuració:
 ```bash
 sudo nano /etc/samba/smb.conf
 ```
-Contingut del document smb.conf
-```txt
+
+Afegeix al final del fitxer:
+```ini
 [sambashare]
-path = /mnt/sdc1/sambasahre
+path = /mnt/sdc1/sambashare
 browsable = yes
 read only = no
 guest ok = no
 ```
-## Reiniciar el servei
+
+## 5. Reiniciar el servei Samba
 ```bash
 sudo systemctl restart smbd
 sudo systemctl status smbd
 ```
-## Crear Usuari
+
+## 6. Crear un usuari Samba
 ```bash
 sudo smbpasswd -a yourusername
 sudo systemctl restart smbd
 ```
 
-## Configurar Firewall
+## Configurar el Firewall
+Consulta la [guia de configuració d'iptables](Iptables_Ubuntu_24-04.md) per permetre els ports necessaris per Samba (139 i 445).
+
 ```bash
-sudo iptables -L
-sudo iptables -A INPUT -p tcp --dport 139 -j ACCEP
-sudo iptables -A INPUT -p tcp --dport 445 -j ACCEP
-sudo iptables-save > /etc/iptables/rules.v4
+# Exemple ràpid:
+sudo iptables -A INPUT -p tcp --dport 139 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 445 -j ACCEPT
+sudo iptables-save | sudo tee /etc/iptables/rules.v4
 ```
+
+---
+
+**Notes:**
+- Assegura't que el directori i el nom del recurs compartit siguin correctes (`sambashare`).
+- Pots consultar l'estat de les regles del firewall amb:
+  ```bash
+  sudo iptables -L -v --line-numbers
+  ```
+- Per més opcions de configuració, consulta la documentació oficial de Samba.

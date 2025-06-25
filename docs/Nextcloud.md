@@ -1,21 +1,24 @@
-Instal·lació de NextCloud Docker
+# Instal·lació de Nextcloud amb Docker
 
-## Crear arxiu Docker Compose
+- Consultar la [Installar Docker en Ubuntu](Docker_Ubuntu_24-04.md)
+## 1. Crear el directori de treball
 
-#### Crea un directori per a NexCloud
-````bash
-mkdir -p ~/nextcloud-docker cd ~/nextcloud-docker
-````
+```bash
+mkdir -p ~/nextcloud-docker
+cd ~/nextcloud-docker
+```
 
-#### Crear docker -compose.yml
-````bash
+## 2. Crear el fitxer `docker-compose.yml`
+
+```bash
 nano docker-compose.yml
-````
+```
 
-#### Afegir Contingut
-Canviar contrasenya Base de dades: root_password
-Canviar  usuari i contrasenya NextCloud: nextcloud_user i nexcloud_password
-````yaml
+## 3. Afegir el contingut següent
+
+> **Important:** Substitueix `root_password`, `nextcloud_user`, i `user_password` per valors segurs i personals.
+
+```yaml
 version: '3.8'
 
 services:
@@ -50,19 +53,35 @@ services:
 volumes:
   db_data:
   nextcloud_data:
-````
+```
 
-## Iniciar el contenidor
-````bash
+## 4. Iniciar els contenidors
+
+```bash
 sudo docker-compose up -d
-````
+```
 
-## Configurar NextCloud en el navegador
-Obre un navegador i ves a http://<IP_DEL_SERVIDOR>:8080.                 
-Completa la configuració:                             
-	Usuari administrador de Nextcloud.                   
-	Base de dades:                  
-		Servidor de base de dades: db.                  
-		Nom de la base de dades: nextcloud.                 
-		Usuari: nextcloud_user.            
-		Contrasenya: user_password.
+## 5. Configurar Nextcloud des del navegador
+
+1. Obre el navegador i accedeix a: [http://<IP_DEL_SERVIDOR>:8080](http://<IP_DEL_SERVIDOR>:8080)
+2. Completa la configuració:
+    - **Usuari administrador de Nextcloud:** (tria un nom d'usuari i contrasenya)
+    - **Base de dades:**
+        - **Servidor de base de dades:** `db`
+        - **Nom de la base de dades:** `nextcloud`
+        - **Usuari:** `nextcloud_user`
+        - **Contrasenya:** `user_password`
+
+---
+
+### Consells addicionals
+
+- Per aturar els contenidors:
+  ```bash
+  sudo docker-compose down
+  ```
+- Per veure els logs:
+  ```bash
+  sudo docker-compose logs -f
+  ```
+- Consulta la [documentació oficial de Nextcloud Docker](https://hub.docker.com/_/nextcloud) per a més opcions de configuració.
